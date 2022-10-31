@@ -12,7 +12,7 @@ Deployed application:
 https://biscuit231.github.io/Weather-Dashboard/
 
 
-![Screenshot of live site.]()
+![Screenshot of live site.](./assets/Images/weatherdash.png)
 
 ## Credits
 

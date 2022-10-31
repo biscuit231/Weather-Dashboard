@@ -2,6 +2,7 @@ var searchCity = document.getElementById('search');
 var forecastHistory = document.querySelector('#history');
 var forecastWeather = document.querySelector('#forecastContainer');
 var currentWeather = document.querySelector('#currentContainer');
+var historyContainer = document.querySelector('.historyContainer');
 var apiKey = "47f166773e351368285402b79068ea73";
 var geoKey = "c07a497972e4c2143988d8729440d005";
 var geoApi = "http://api.openweathermap.org/geo/1.0/direct?appid=" + geoKey + "&limit=1&q=";
@@ -33,6 +34,7 @@ function showHistory() {
     
         var button = document.createElement("button");
         button.classList.add('btn');
+        button.classList.add('reload');
         button.classList.add('btn-secondary');
         button.classList.add('col-md-12');
         button.setAttribute("type", button);
@@ -85,19 +87,20 @@ function displayWeather(results) {
 
     let date = document.createElement('div');
     let div = document.createElement('div');
-    let div2 = document.createElement('div');
+    let div2 = '';
     let img = document.createElement('img');
     date.classList.add('fs-4');
     div.classList.add('fs-5');
 
     if(uvi <= 3) {
-        div2.classList.add('uvGreen');
+        div2 = `<div style='background: rgb(0, 255, 98); width: 50px; text-align: center; border-radius: 10px'>${uvi}</div>`;
     } else if(uvi >= 8) {
-        div2.classList.add('uvRed');
+        div2 = `<div style='background: rgb(255, 87, 87); width: 50px; text-align: center; border-radius: 10px'>${uvi}</div>`;
     } else {
-        div2.classList.add('uvOrange');
+        div2 = `<div style='background: rgb(255, 187, 0); width: 50px; text-align: center; border-radius: 10px'>${uvi}</div>`;
     };
 
+    console.log(uvi);
     div2.innerHTML = uvi;
     img.src = icon;
     date.innerHTML = today;
@@ -156,7 +159,7 @@ function displayForecast(results) {
 searchCity.addEventListener('click', function(event) {
     event.preventDefault();
     console.log("click");
-    var city = document.querySelector('#city').value.trim();
+    let city = document.querySelector('#city').value.trim();
 
     if (city === "") {
         return;
@@ -173,10 +176,13 @@ searchCity.addEventListener('click', function(event) {
 });
 
 // When user selects a button from previous searches, it searches for it again
-// element.addEventListener('click', function(event) {
-//     event.preventDefault();
+historyContainer.addEventListener('click', function(event) {
+    event.preventDefault();
+    console.log(event.target.innerHTML);
 
-//     console.log();
-// });
+    let city = event.target.innerHTML;
+
+    getLocation(city);
+});
 
 init();
