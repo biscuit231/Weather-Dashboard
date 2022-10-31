@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, maximum-scale=1, initial-scale=1.0">
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="./assets/CSS/style.css">
     <title>Weather Dashboard</title>
@@ -12,23 +13,27 @@
 
     <header id="title">
         <h1>Weather Dashboard</h1>
-    </header>
+    </header><br>
     
 <div class="row">
-    <div class="col-md-3" id="searchContainer">
+    <div class="col-md-3 d-grid gap-2" id="searchContainer">
         <H2>Search for a city:</H2>
         <input type="text" name="city "id="city" placeholder="Adelaide"><br><br>
-        <button id="search">Search</button>
+        <button id="search" class="btn btn-primary col-md-12" type="button">Search</button>
     </div>  
 
-    <div class="col-md-9" id="currentContainer">
-        <H2>Current Weather:</H2>
+    <div class="col-md-9 border border-dark" id="currentContainer" >
+        <H2 >Current Weather:</H2>
     </div>
-</div>
+</div><br>
+
+<div class="row">
+    <div class="col-md-3"></div>
+</div><br>
 
 <div class="row">
     <div class="col-md-3">
-        <div id="history">example</div>
+        <div id="history" class="d-grid gap-2"></div>
     </div>
     <div class="col-md-9" id="forecastContainer">
         <h3>5-Day Forecast:</h3>

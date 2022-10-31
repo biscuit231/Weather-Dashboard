@@ -1,4 +1,30 @@
+/* header */
 #title {
     text-align: center;
+    background: linear-gradient(90deg, rgba(16,103,159,1) 0%, rgba(0,194,255,1) 100%);
+    padding: 20px;
 }
 
+/* Sets container for each forecast day */
+.forecastContainer {
+    font-size: 24px;
+    border-radius: 5px;
+    margin: 15px;
+    background: radial-gradient(circle, rgba(0,254,255,0.8743872549019608) 0%, rgba(0,242,255,0.4738270308123249) 85%);
+};
+
+/* Sets appropriate color for current uv index */
+.uvGreen {
+    background: green;
+    border-radius: 5px;
+};
+
+.uvOrange {
+    background: orange;
+    border-radius: 5px;
+};
+
+.uvRed {
+    background: red;
+    border-radius: 5px;
+};
